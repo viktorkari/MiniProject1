@@ -1,7 +1,9 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     let userInfoContainer = document.createElement("div");
-    userInfoContainer.classList.add("user-info");
+    let userAddressContainer = document.createElement("div");
+    let userGeoContainer = document.createElement("div");
+    let userCompanyContainer = document.createElement("div");
     let postsButton = document.createElement("button");
     postsButton.textContent = "Posts of Current User";
     postsButton.classList.add("posts-button");
@@ -10,6 +12,35 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.fontFamily = "Arial, sans-serif";
     userInfoContainer.style.padding = "20px";
     userInfoContainer.style.backgroundColor = "#f0f0f0";
+    userInfoContainer.style.width = "220px";
+    userInfoContainer.style.height = "225px";
+    userInfoContainer.style.backgroundColor ="#ac992c";
+    userInfoContainer.style.border = "2px solid";
+    userInfoContainer.style.textAlign = "center";
+    userAddressContainer.style.marginLeft = "360px";
+    userAddressContainer.style.marginTop = "-270px";
+    userAddressContainer.style.width = "220px";
+    userAddressContainer.style.height = "225px";
+    userAddressContainer.style.backgroundColor = "#ac992c";
+    userAddressContainer.style.border = "2px solid";
+    userAddressContainer.style.textAlign = "center"
+    userAddressContainer.style.padding = "20px"
+    userGeoContainer.style.width = "220px";
+    userGeoContainer.style.height = "225px";
+    userGeoContainer.style.marginLeft = "54%";
+    userGeoContainer.style.marginTop = "-270px"
+    userGeoContainer.style.padding = "20px"
+    userGeoContainer.style.border = "2px solid"
+    userGeoContainer.style.textAlign = "center"
+    userGeoContainer.style.backgroundColor = "#ac992c"
+    userCompanyContainer.style.width = "220px";
+    userCompanyContainer.style.height = "225px";
+    userCompanyContainer.style.marginLeft = "80.3%";
+    userCompanyContainer.style.marginTop = "-270px"
+    userCompanyContainer.style.padding = "20px"
+    userCompanyContainer.style.border = "2px solid"
+    userCompanyContainer.style.textAlign = "center"
+    userCompanyContainer.style.backgroundColor = "#ac992c"
     postsButton.style.display = "block";
     postsButton.style.width = "90%";
     postsButton.style.margin = "20px auto";
@@ -31,8 +62,12 @@ document.addEventListener("DOMContentLoaded", function () {
     postsContainer.style.justifyContent = "space-between";
     postsContainer.style.padding = "20px";
     document.body.appendChild(userInfoContainer);
+    document.body.appendChild(userAddressContainer);
+    document.body.appendChild(userGeoContainer);
+    document.body.appendChild(userCompanyContainer);
     document.body.appendChild(postsButton);
     document.body.appendChild(postsContainer);
+
     function displayUserInfo(user) {
         userInfoContainer.innerHTML = `
             <h2>User Details</h2>
@@ -41,7 +76,24 @@ document.addEventListener("DOMContentLoaded", function () {
             <p>Email: ${user.email}</p>
             <p>Phone: ${user.phone}</p>
             <p>Website: ${user.website}</p>`;
-    }
+    userAddressContainer.innerHTML = `
+        <h2>User Address</h2>
+        <p>Street: ${user.address.street}</p>
+        <p>Suite: ${user.address.suite}</p>
+        <p>City: ${user.address.city}</p>
+        <p>Zipcode: ${user.address.zipcode}</p>`;
+    userGeoContainer.innerHTML = `
+        <h2>User Geo</h2>
+        <p>lat: ${user.geo}</p>
+        <p>lng: ${user.geo}</p>`;
+    userCompanyContainer.innerHTML = `
+        <h2>User Company</h2>
+        <p>company: ${user.company.name}</p>
+        <p>catchPhrase: ${user.company.catchPhrase}</p>
+        <p>bs: ${user.company.bs}</p>
+    
+    `;
+}
     let urlParams = new URLSearchParams(window.location.search);
     let userId = urlParams.get("id");
     fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)

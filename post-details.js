@@ -4,11 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let postId = urlParams.get("postId");
     let postDetailsElement = document.createElement("div");
     postDetailsElement.id = "postDetails";
-    postDetailsElement.style.marginLeft = "300px";
-    postDetailsElement.style.marginTop = "-220px";
-    postDetailsElement.style.marginBottom = "60px";
-    postDetailsElement.style.width = "400px";
-    postDetailsElement.style.height = "200px";
+    postDetailsElement.style.marginLeft = "37%";
+    postDetailsElement.style.marginTop = "-230px";
+    postDetailsElement.style.width = "600px";
+    postDetailsElement.style.height = "225px";
+    postDetailsElement.style.backgroundColor = "#ac992c";
+    postDetailsElement.style.border = "2px solid";
+    postDetailsElement.style.textAlign = "center";
+    postDetailsElement.style.marginBottom = "20px";
     document.body.style.fontFamily = "Arial, sans-serif";
     document.body.appendChild(postDetailsElement);
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
@@ -31,7 +34,7 @@ function loadComments(postId) {
     commentsHeader.textContent = "comments ➜";
     commentsHeader.style.position = "absolute";
     commentsHeader.style.top = "170px";
-    commentsHeader.style.left = "63%";
+    commentsHeader.style.left = "88%";
     commentsHeader.style.transform = "translateX(-30%) rotate(15deg)";
     document.body.appendChild(commentsHeader);
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
@@ -83,6 +86,11 @@ function loadComments(postId) {
                                 <p>Phone: ${user.phone}</p>
                                 <p>Website: ${user.website}</p>
                                 `;
+                                userDiv.style.width = "330px";
+                                userDiv.style.height = "225px";
+                                userDiv.style.backgroundColor = "#ac992c";
+                                userDiv.style.border = "2px solid";
+                                userDiv.style.textAlign = "center";
                                 document.body.insertBefore(userDiv, document.body.firstChild);
                                 })
                             .catch(error => console.error(error));
