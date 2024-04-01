@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     postsContainer.classList.add("posts-container");
     document.body.style.fontFamily = "Arial, sans-serif";
     userInfoContainer.style.padding = "20px";
-    userInfoContainer.style.backgroundColor = "#f0f0f0";
     userInfoContainer.style.width = "230px";
     userInfoContainer.style.height = "225px";
     userInfoContainer.style.backgroundColor ="#ac992c";
